@@ -1,0 +1,221 @@
+
+
+.header {
+    height: 55px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /*this will align the all the divs inside the 
+    flexbox in such a way such that there will be space between each of them*/
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    
+    background-color: white;
+    z-index: 100;
+
+
+    /*this will add the border and all its properties at the bottom of the
+    header only*/
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(228, 228, 228);
+}
+
+.left-section {
+   
+    display: flex;
+    align-items: center;
+}
+
+.hamburger-menu{
+    height: 25px;
+    margin-left: 24px;
+    margin-right: 24px;
+}
+
+.youtube-logo {
+    height: 20px;
+}
+
+.middle-section {
+    flex: 1;
+    margin-left: 70px;
+    margin-right: 35px;
+    max-width: 400px; /* this will limit the width of the this div when you resize
+    the browser, will help in responsiveness*/
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    flex: 1;
+    font-size: 16px;
+    height: 36px;
+    padding-left: 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(192,192,192);
+    border-radius: 2px;
+
+    /*inset keyword is used to create a box shadow inside the box*/
+    box-shadow: inset 1px 2px 3px rgba(0,0,0,0.05);
+
+    /*this will ensure that when we minimize our browser window then the search-bar
+    input field will get shrink as much as it because of being a flexbox, because now
+    it does not have any width to maintain*/
+    width: 0;
+
+}
+
+/* this is how we access the placeholder property of a input field*/
+.search-bar::placeholder {
+    font-family: Roboto, Arial;
+    font-size: 16px;
+}
+
+.search-button {
+    background-color: rgb(240,240,240);
+    width: 66px;
+    height: 40px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(192,192,192);
+    margin-right: 10px;
+
+    /*this will kind of dimnish the boundary between the search-bar and magnifying glass
+    search icon and it will look like they both are emerged into one another, instead
+    of discrete they are being spectrum*/
+    margin-left: -1px;
+}
+
+
+.search-button, 
+.voice-search-button,
+.upload-icon-container,
+.youtube-apps-icon-container,
+.notifications-icon-container {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+}
+
+/*
+this will only target the tooltip class which is inside search-button class
+*/
+.search-button .tooltip,
+.voice-search-button .tooltip,
+.upload-icon-container .tooltip,
+.youtube-apps-icon-container .tooltip,
+.notifications-icon-container .tooltip{
+
+    font-family: Roboto, Arial;
+    position: absolute;
+    background-color: gray;
+    color: white;
+    padding: 4px 8px 4px 8px;
+    border-radius: 2px;
+    font-size: 12px;
+    bottom: -30px;
+    
+    /*by-default we maintain a opacity of 0 which means our tooltip will be 
+    invisible by-default but as soon as we hover over it, we will change the opacity
+    to 1, so it will become visible again*/
+    opacity: 0;
+    transition: opacity 0.15s;
+
+    /*when we are hovering below the search-button, the tooltip is getting visible
+    but we want it to get visible only when we hover over the button, so to disable
+    the hovering below the search-button, we wll use pointer-events*/
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.search-button:hover .tooltip,
+.voice-search-button:hover .tooltip,
+.upload-icon-container:hover .tooltip,
+.youtube-apps-icon-container:hover .tooltip,
+.notifications-icon-container:hover .tooltip{
+  
+    opacity: 1;
+}
+
+.search-icon {
+    height: 25px;
+
+}
+
+.voice-search-icon {
+    height: 24px;
+    
+}
+.voice-search-button {
+    background-color: rgb(248,248,248);
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+}
+
+.right-section {
+    width: 180px;
+    display: flex;
+    margin-right: 20px;
+    align-items: center;
+    justify-content: space-between;
+
+    /*this will prevent this particular flexbox from shrinking when we try to
+    minimize our browser window and it will keep up the width of 180px all the time*/
+    flex-shrink: 0;
+}
+
+
+.upload-icon {
+    height: 24px;
+}
+
+.youtube-apps-icon {
+    height: 24px;
+}
+
+.notifications-icon {
+    height: 24px;
+}
+
+.current-user-picture {
+    height: 32px;
+    border-radius: 16px;
+}
+
+.notifications-icon-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.notifications-count {
+    position: absolute;
+
+    /*we can use negative numbers as well when we want our element to go
+    beyond the boundary of the parent element*/
+    right: -5px;
+    top: -2px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(200, 0, 0);
+    padding: 2px 5px 2px 5px;
+    font-family: Roboto,Arial;
+    font-size: 11px;
+
+}
+
+
+
+/*justify content property applies on parent div on which we have applied display flex
+and justify content will help in stick the left-section onto the left, middle-section
+onto the middle and right-section onto the right only as same as youtube header*/
